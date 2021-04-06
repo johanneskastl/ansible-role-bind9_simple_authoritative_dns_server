@@ -1,0 +1,22 @@
+---
+# bind9_simple_authoritative_dns_server/tasks/configure_bind9.yml
+
+- name: 'Create /etc/bind/named.conf.options'
+  template:
+    src: 'named.conf.options.j2'
+    dest: '/etc/bind/named.conf.options'
+    owner: 'root'
+    group: "{{ bind_group }}"
+    mode: '0644'
+  notify:
+    - 'Restart bind9 service'
+
+- name: 'Create /etc/bind/named.conf.local'
+  template:
+    src: 'named.conf.local.j2'
+    dest: '/etc/bind/named.conf.local'
+    owner: 'root'
+    group: "{{ bind_group }}"
+    mode: '0644'
+  notify:
+    - 'Restart bind9 service'
