@@ -1,0 +1,18 @@
+galaxy_info:
+  role_name: 'bind9_simple_authoritative_dns_server'
+  author: 'Johannes Kastl'
+  description: 'Install bind9 (aka named) as a simple authoritative DNS server'
+  company: 'B1 Systems GmbH'
+
+  license: 'BSD-3-Clause'
+
+  min_ansible_version: 2.4
+
+  platforms:
+  - name: Debian
+    versions:
+    - all
+
+  galaxy_tags: []
+
+dependencies: []
