@@ -5,3 +5,11 @@
 // Consider adding the 1918 zones here, if they are not used in your
 // organization
 //include "/etc/bind/zones.rfc1918";
+
+{% for forward_zone in forward_zones %}
+zone "{{ forward_zone }}" {
+    type master;
+    file "/etc/bind/zones/{{ forward_zone}}.zone";
+};
+
+{% endfor %}
