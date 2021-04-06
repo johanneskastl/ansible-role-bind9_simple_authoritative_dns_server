@@ -1,5 +1,5 @@
 $TTL    {{ soa_ttl }}
-@       IN      SOA     {{ ns1 }}.{{ item }}. {{ zone_admin }}.{{ item }}. (
+@       IN      SOA     {{ ns1 }}.{{ item['name'] }}. {{ zone_admin }}.{{ item['name'] }}. (
                         {{ soa_serial }} ; Serial
                         {{ soa_refresh }} ; Refresh
                         {{ soa_retry }} ; Retry
@@ -8,7 +8,7 @@ $TTL    {{ soa_ttl }}
 ;
 
 ; Name servers
-@	IN	NS	{{ ns1 }}.{{ item }}.
+@	IN	NS	{{ ns1 }}.{{ item['name'] }}.
 
 ; A records for name servers
 {{ ns1 }}	IN	A	{{ ansible_default_ipv4['address'] }}

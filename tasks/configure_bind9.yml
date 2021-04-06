@@ -31,7 +31,7 @@
 - name: 'Create zone file for forward zones'
   template:
     src: 'forward_zone.j2'
-    dest: "/etc/bind/zones/{{ item }}.zone"
+    dest: "/etc/bind/zones/{{ item['name'] }}.zone"
     owner: 'root'
     group: "{{ bind_group }}"
     mode: '0644'
