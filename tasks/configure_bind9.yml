@@ -21,6 +21,13 @@
   notify:
     - 'Restart bind9 service'
 
+- name: 'Create directory for zone files'
+  file:
+    path: "{{ bind_zone_directory }}"
+    owner: 'root'
+    group: "{{ bind_group }}"
+    mode: '2755'
+
 - name: 'Create zone file for forward zones'
   template:
     src: 'forward_zone.j2'
