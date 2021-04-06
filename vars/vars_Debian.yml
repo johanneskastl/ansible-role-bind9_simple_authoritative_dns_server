@@ -1,0 +1,15 @@
+---
+# bind9_simple_authoritative_dns_server/vars/vars_Debian.yml
+
+# packages for the Bind9 DNS Server
+bind_packages:
+  - bind9
+  - bind9utils
+  - dnsutils
+
+# name of the bind aka named service
+bind_systemd_unit: 'bind9'
+
+# name of user/group for bind
+bind_user: 'bind'
+bind_group: 'bind'
