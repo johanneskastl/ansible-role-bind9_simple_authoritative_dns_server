@@ -1,0 +1,7 @@
+---
+# bind9_simple_authoritative_dns_server/tasks/install_packages.yml
+
+- name: 'Install Bind packages'
+  package:
+    name: "{{ bind_packages }}"
+    state: 'present'
