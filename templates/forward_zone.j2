@@ -14,4 +14,8 @@ $TTL    {{ soa_ttl }}
 {{ ns1 }}	IN	A	{{ ansible_default_ipv4['address'] }}
 
 ; Other A records
-{{ inventory_hostname }}	IN	A	{{ ansible_default_ipv4['address'] }}
+{% for loop_group in item['list_of_groups'] %}
+{% for host in groups[loop_group]%}
+{{ hostvars[host]['inventory_hostname'] }}	IN	A	{{ hostvars[host]['ansible_default_ipv4']['address'] }}
+{% endfor %}
+{% endfor %}
