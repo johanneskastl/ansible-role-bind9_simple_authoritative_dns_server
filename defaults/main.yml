@@ -1,0 +1,16 @@
+---
+# bind9_simple_authoritative_dns_server/defaults/main.yml
+
+# default forward zones
+forward_zones:
+  - 'training.b1-systems.de'
+
+# Zone settings
+zone_admin: 'root'
+ns1: 'ns1'
+soa_ttl: 86400
+soa_serial: 1
+soa_refresh: 604800
+soa_retry: 86400
+soa_expire: 2419200
+soa_negative_cache_TTL: 86400 
