@@ -15,3 +15,12 @@ zone "{{ forward_zone['name'] }}" {
 
 {% endfor %}
 {% endif %}
+{% if reverse_zones is defined %}
+{% for reverse_zone in reverse_zones %}
+zone "{{ reverse_zone['name'] }}" {
+    type master;
+    file "/etc/bind/zones/{{ reverse_zone['name']}}.zone";
+};
+
+{% endfor %}
+{% endif %}
