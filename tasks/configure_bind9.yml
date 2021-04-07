@@ -36,5 +36,6 @@
     group: "{{ bind_group }}"
     mode: '0644'
   with_items: "{{ forward_zones }}"
+  when: 'forward_zones is defined'
   notify:
     - 'Restart bind9 service'
