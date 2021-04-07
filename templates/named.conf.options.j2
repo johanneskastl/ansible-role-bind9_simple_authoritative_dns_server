@@ -31,10 +31,26 @@ options {
 
 	listen-on-v6 { any; };
 
+{% if list_of_forwarders is defined %}
+	//
+	// enable recursion
+	//
+	recursion yes;
+	allow-query {
+		127.0.0.1;
+		localhost;
+{% if allowed_clients is defined %}
+{% for entry in allowed_clients %}
+		{{ entry }};
+{% endfor %}
+{% endif %}
+	};
+{% else%}
 	//
 	// disable recursion
 	//
 	recursion no;
+{% endif %}
 
 	//
 	// disable zone transfers
