@@ -1,0 +1,18 @@
+$TTL    {{ soa_ttl }}
+@       IN      SOA     {{ ns1 }}.{{ item['domain_for_entries'] }}. {{ zone_admin }}.{{ item['domain_for_entries'] }}. (
+                        {{ soa_serial }} ; Serial
+                        {{ soa_refresh }} ; Refresh
+                        {{ soa_retry }} ; Retry
+                        {{ soa_expire }} ; Expire
+                        {{ soa_negative_cache_TTL }} ) ; Negative Cache TTL
+;
+
+; Name servers
+@	IN	NS	{{ ns1 }}.{{ item['domain_for_entries'] }}.
+
+; PTR records
+{% for loop_group in item['list_of_groups'] %}
+{% for host in groups[loop_group]%}
+{{ hostvars[host]['ansible_default_ipv4']['address'].split('.')[-1] }}.{{ item['name'] }}.	IN	PTR	{{ hostvars[host]['inventory_hostname'] }}.{{ item['domain_for_entries'] }}.
+{% endfor %}
+{% endfor %}
