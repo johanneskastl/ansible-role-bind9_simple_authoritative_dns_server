@@ -6,6 +6,7 @@
 // organization
 //include "/etc/bind/zones.rfc1918";
 
+{% if forward_zones is defined %}
 {% for forward_zone in forward_zones %}
 zone "{{ forward_zone['name'] }}" {
     type master;
@@ -13,3 +14,4 @@ zone "{{ forward_zone['name'] }}" {
 };
 
 {% endfor %}
+{% endif %}
