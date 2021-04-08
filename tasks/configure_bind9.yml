@@ -24,6 +24,7 @@
 - name: 'Create directory for zone files'
   file:
     path: "{{ bind_zone_directory }}"
+    state: 'directory'
     owner: 'root'
     group: "{{ bind_group }}"
     mode: '2755'
