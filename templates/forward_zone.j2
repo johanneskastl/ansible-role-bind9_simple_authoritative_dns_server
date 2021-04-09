@@ -19,3 +19,6 @@ $TTL    {{ soa_ttl }}
 {{ hostvars[host]['inventory_hostname'] }}	IN	A	{{ hostvars[host]['ansible_default_ipv4']['address'] }}
 {% endfor %}
 {% endfor %}
+{% if additional_records is defined %}
+{{ additional_records }}
+{% endif %}
