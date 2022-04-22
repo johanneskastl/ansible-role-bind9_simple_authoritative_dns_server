@@ -13,4 +13,4 @@ soa_serial: 1
 soa_refresh: 604800
 soa_retry: 86400
 soa_expire: 2419200
-soa_negative_cache_TTL: 86400 
+soa_negative_cache_ttl: 86400
