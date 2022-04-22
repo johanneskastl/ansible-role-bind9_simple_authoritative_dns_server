@@ -1,5 +1,6 @@
 galaxy_info:
   role_name: 'bind9_simple_authoritative_dns_server'
+  namespace: 'johanneskastl'
   author: 'Johannes Kastl'
   description: 'Install bind9 (aka named) as a simple authoritative DNS server'
   company: 'B1 Systems GmbH'
