@@ -1,3 +1,5 @@
+![Ansible Lint](https://github.com/johanneskastl/ansible-role-bind9_simple_authoritative_dns_server/workflows/Ansible%20Lint/badge.svg)
+
 bind9_simple_authoritative_dns_server
 =========
 
