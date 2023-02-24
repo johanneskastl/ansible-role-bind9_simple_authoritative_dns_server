@@ -2,6 +2,6 @@
 # bind9_simple_authoritative_dns_server/handlers/main.yml
 
 - name: 'Restart bind9 service'
-  service:
+  ansible.builtin.service:
     name: "{{ bind_systemd_unit }}"
     state: 'restarted'
