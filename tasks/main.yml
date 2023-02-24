@@ -2,19 +2,19 @@
 # bind9_simple_authoritative_dns_server/tasks/main.yml
 
 - name: "Load variables"
-  include_vars: "{{ item }}"
+  ansible.builtin.include_vars: "{{ item }}"
   with_first_found:
     - "vars_{{ ansible_distribution }}.yml"
     - "vars_{{ ansible_os_family }}.yml"
 
 - name: 'Install packages'
-  import_tasks: install_packages.yml
+  ansible.builtin.import_tasks: install_packages.yml
 
 - name: 'Configure bind9'
-  import_tasks: configure_bind9.yml
+  ansible.builtin.import_tasks: configure_bind9.yml
 
 - name: 'Start and enable the service'
-  service:
+  ansible.builtin.service:
     name: "{{ bind_systemd_unit }}"
     state: 'started'
     enabled: 'true'
