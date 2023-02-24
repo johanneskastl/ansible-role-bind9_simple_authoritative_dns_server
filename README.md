@@ -25,7 +25,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - { role: 'johanneskastl.bind9_simple_authoritative_dns_server' }
+         - role: 'johanneskastl.bind9_simple_authoritative_dns_server'
 
 License
 -------
